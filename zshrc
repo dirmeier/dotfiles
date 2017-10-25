@@ -9,6 +9,9 @@ unsetopt share_history
 unsetopt correct
 CASE_SENSITIVE="true"
 
+PS1="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\W\[\033[m\]\$ "
+PS1="🤘    ${PS1}"
+
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 export GRADLE_HOME=/usr/local/gradle/

@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -23,12 +23,13 @@ Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-let mapleader = ','
-
+let mapleader="\<SPACE>"
+let g:python3_host_prog = '/Users/simondi/anaconda3/envs/py35/bin/python3.5'
 let g:ycm_server_log_level = 'debug'
 let NERDTreeIgnore = ['\.o$']
-let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p

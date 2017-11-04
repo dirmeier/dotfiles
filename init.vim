@@ -19,9 +19,13 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'jalvesaq/Nvim-R'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'https://github.com/rhysd/vim-clang-format.git'
+Plugin 'https://github.com/kana/vim-operator-user.git'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 
 let mapleader="\<SPACE>"
 let g:python3_host_prog = '/Users/simondi/anaconda3/envs/py35/bin/python3.5'
@@ -36,7 +40,7 @@ autocmd VimEnter * wincmd p
 
 colorscheme Monokai
 set list
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:.
 set wrap!
 set colorcolumn=79
 
@@ -52,6 +56,8 @@ set syntax=whitespace
 set nu
 set ruler
 
+set splitright
+set splitbelow
 set showcmd
 set autoindent
 set tabstop=2

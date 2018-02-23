@@ -24,4 +24,5 @@ alias jshell='/Library/Java/JavaVirtualMachines/jdk-9.jdk/Contents/Home/bin/jshe
 alias hugo='/usr/local/hugo/hugo'
 alias vim='nvim'
 alias docker='/usr/local/bin/docker'
+alias clang-format='clang-format-mp-4.0'
 alias R='rtichoke'

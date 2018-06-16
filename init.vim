@@ -27,6 +27,8 @@ filetype plugin indent on    " required
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+set tags=./tags;
+
 let mapleader="\<SPACE>"
 let g:python3_host_prog = '/Users/simondi/anaconda3/envs/py35/bin/python3.5'
 let g:ycm_server_log_level = 'debug'
@@ -63,7 +65,6 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set bs=2
-set expandtab
 set incsearch
 set ignorecase
 set smartcase

@@ -4,14 +4,22 @@ Install guides for my computers
 * Install zsh and zpretzo. Then add dotfiles.
 * Install Conda environment called 'default' and add .condarc.
 * Install Atom and add keymap
-* Install NVIM and add init.vim, install dependencies
+* Install NVIM, add init.vim and install Vundle
 * Install software, such as
-	- Terminator,
+	- Docky
+	- Terminator, Guake,
 	- IDEs, 
-	- Skype, Slack,
+	- Skype, Slack, Telegram, Signal
 	- CLIQZ, Thunderbird,
 	- ...
-* Setup Seafile and Dropbox.
+
+* Ubuntu: remove annoying dock using
+```
+cd /usr/share/gnome-shell/extensions/
+mv ubuntu-dock@ubuntu.com{,.bak} 
+```
+
+* Setup Seafile and Dropbox. 
 * Add Bookmarks to CLIQZ.
 * Add github config and clone my repositories
 

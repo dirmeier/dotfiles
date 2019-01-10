@@ -1,13 +1,17 @@
 Install guides for my computers
 ================================
 
-* Install zsh and zpretzo. Then add dotfiles,
+* Install zsh and zpretzo. Then add dotfiles.
+* Install Conda environment called 'default' and add .condarc.
+* Install Atom and add keymap
+* Install NVIM and add init.vim, install dependencies
 * Install software, such as
 	- Terminator,
 	- IDEs, 
 	- Skype, Slack,
 	- CLIQZ, Thunderbird,
 	- ...
-* Add Bookmarks to CLIQZ
-* 
+* Setup Seafile and Dropbox.
+* Add Bookmarks to CLIQZ.
+* Add github config and clone my repositories
 

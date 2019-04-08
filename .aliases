@@ -1,0 +1,18 @@
+alias psg='postgres -D /opt/local/var/db/postgres/tix'
+alias ll='ls -lh'
+alias la='ls -lha'
+alias l='less -SI $1'
+alias pa='ps aux | grep $1'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias h='head'
+alias t='tail'
+alias rm='rm -i'
+alias rmr='rm -rfd'
+alias lg='ll | grep $1'
+alias vim='nvim'
+
+alias clion='/opt/local/clion/current/bin/clion.sh &'
+alias pycharm='/opt/local/pycharm/current/bin/pycharm.sh &'
+alias webstorm='/opt/local/webstorm/current/bin/webstorm.sh &'
+

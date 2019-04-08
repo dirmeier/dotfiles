@@ -2,13 +2,23 @@ Install guides for my computers
 ================================
 
 * Install zsh and zpretzo. Then add dotfiles.
+
 * Install Conda environment called 'default' and add .condarc.
+
+```bash
+conda create -n default python=3.*
+```
+
 * Install Atom and add keymap
+
+* Setup Seafile and Dropbox.
+
 * Install NVIM, add init.vim and install Vundle
+
 * Install software, such as
 	- Docky
 	- Terminator, Guake,
-	- IDEs, 
+	- IDEs (add settings from seafile), 
 	- Skype, Slack, Telegram, Signal
 	- CLIQZ, Thunderbird,
 	- ...
@@ -18,8 +28,9 @@ Install guides for my computers
 cd /usr/share/gnome-shell/extensions/
 mv ubuntu-dock@ubuntu.com{,.bak} 
 ```
+Hit "Alt + F2" -> "r"
 
-* Setup Seafile and Dropbox. 
 * Add Bookmarks to CLIQZ.
+
 * Add github config and clone my repositories
 

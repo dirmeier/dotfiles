@@ -15,4 +15,6 @@ alias vim='nvim'
 alias clion='/opt/local/clion/current/bin/clion.sh &'
 alias pycharm='/opt/local/pycharm/current/bin/pycharm.sh &'
 alias webstorm='/opt/local/webstorm/current/bin/webstorm.sh &'
+alias node='/opt/local/node/current/bin/node'
+alias npm='/opt/local/node/current/bin/npm'
 

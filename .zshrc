@@ -15,9 +15,10 @@ CASE_SENSITIVE="true"
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
-PS1="${PS1}"
+PS1="🚀${PS1}"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+source ~/miniconda3/bin/activate default

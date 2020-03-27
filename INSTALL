@@ -1,29 +1,26 @@
 Install guides for my computers
 ================================
 
-* Update and upgrade everything.
-* Create an ssh key (ssh-keygen -t rsa) and add to GitHub.
-* Install Dropbox and setup firefox bookmarks.
-* Install git, add 'github/dotfiles'.
-* Install zsh and zpretzo.
-* Install neovim
-* Copy relevant dotfiles
-* Add .condarc and conda install environment called 'default':
-
+* update and upgrade everything
+* install terminator and guake
+* create an ssh key (ssh-keygen -t rsa) and add to GitHub.
+* install dropbox and setup firefox bookmarks as well as firefox addons
+* install git and add 'github/dotfiles' and copy relevent dotfiles
+* install zsh and zpretzo and add .zshrc and .zpreztorc
+* install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
+* install i3, i3-wm and add configs from dotfiles
+* add .condarc and conda install environment called 'default'
 ```bash
 ~/miniconda3/bin/conda create -n default python=3.*
 ```
-
-* Install Atom and add keymap
-* Setup and Dropbox.
-* Install NVIM, add init.vim and install Vundle
+* install atom and add keymap
 * Install software, such as
-	- Terminator
-	- PyCharm/Webstorm/Clion (add settings from dropbox), 
+	- pycharm/webstorm/clion (add settings from dropbox), 
+	- r and rstudio
 	- Skype, Telegram, Signal
-	- Firefox, Thunderbird,
-	- Cuda/Nvidia driver
-
-* Add bookmarks to Firefox.
-* Clone my repositories using SSH
+	- firefox, thunderbird,
+	- cuda and nvidia driver
+* clone my repositories using SSH
+* smaller things:
+	- customize arch/ubuntu using gnome tweak utils, etc.
 

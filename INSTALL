@@ -1,11 +1,17 @@
 Install guides for my computers
 ================================
-* Install zsh and zpretzo. 
-* Install git, add 'github/dotfiles' and copy relevant ones.
+
+* Update and upgrade everything.
+* Create an ssh key (ssh-keygen -t rsa) and add to GitHub.
+* Install Dropbox and setup firefox bookmarks.
+* Install git, add 'github/dotfiles'.
+* Install zsh and zpretzo.
+* Install neovim
+* Copy relevant dotfiles
 * Add .condarc and conda install environment called 'default':
 
 ```bash
-conda create -n default python=3.*
+~/miniconda3/bin/conda create -n default python=3.*
 ```
 
 * Install Atom and add keymap

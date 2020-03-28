@@ -1,5 +1,19 @@
-Install guides for my computers
-================================
+# Install guides for my computers
+
+## Arch linux
+
+- follow installation from: https://itsfoss.com/install-arch-linux/
+- create 4 partitions:
+	- efi with 512M (EFI System)
+	- root with 64GB (Linux root x86_64)
+	- swap with 16GB (Linux swap)
+	- home with rest (Linux home)
+- pacstrap /mnt base base-devel linux linux-firmware vim nano vi
+- add a user
+- install terminator
+- install gnome and i3
+
+## Geeneral dependencies
 
 * update and upgrade everything
 * install terminator and guake
@@ -15,12 +29,13 @@ Install guides for my computers
 ```
 * install atom and add keymap
 * Install software, such as
-	- pycharm/webstorm/clion (add settings from dropbox), 
+	- pycharm/webstorm/clion (add settings from dropbox), sublime
 	- r and rstudio
-	- Skype, Telegram, Signal
+	- skype, telegram, signal
 	- firefox, thunderbird,
 	- cuda and nvidia driver
+	- pcmanfm and audacious
+
 * clone my repositories using SSH
 * smaller things:
-	- customize arch/ubuntu using gnome tweak utils, etc.
-
+	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)

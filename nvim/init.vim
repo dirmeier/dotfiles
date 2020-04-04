@@ -68,6 +68,7 @@ set bs=2
 set incsearch
 set ignorecase
 set smartcase
+set expandtab
 
 map <F2> :NERDTreeToggle<CR>
 let g:indent_guides_start_level=2

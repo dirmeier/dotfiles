@@ -22,7 +22,7 @@
 * install git and add 'github/dotfiles' and copy relevent dotfiles
 * install zsh and zpretzo and add .zshrc and .zpreztorc
 * install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
-* install i3, i3-wm and add configs from dotfiles
+* install i3, i3-wm and add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
 * add .condarc and conda install environment called 'default'
 ```bash
 ~/miniconda3/bin/conda create -n default python=3.*

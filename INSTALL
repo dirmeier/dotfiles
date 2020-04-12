@@ -36,7 +36,7 @@
 	- firefox, thunderbird,
 	- cuda and nvidia driver
 	- pcmanfm and audacious
-
+* install fluxgui and redshift
 * clone my repositories using SSH
 * smaller things:
 	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)

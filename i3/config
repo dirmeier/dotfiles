@@ -64,12 +64,6 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+semicolon move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -179,8 +173,16 @@ default_border normal
 hide_edge_borders both
 client.focused #222222 #000000 #ffffff #2e9ef4 #285577
 
-bindsym $mod+Shift+m exec xrandr --output HDMI-0 --auto --right-of eDP-1-1
+bindsym $mod+Shift+Left workspace prev
+bindsym $mod+Shift+Right workspace next
+
+bindsym $mod+Shift+m exec xrandr --output HDMI-0 --auto --right-of eDP-1-1 && xrandr --output eDP-1-1 --brightness 0.5
 bindsym $mod+Shift+n exec xrandr --output HDMI-0 --off
 
-bindsym XF86MonBrightnessUp exec "light -A 10; notify-send 'brightness up'";
-bindsym XF86MonBrightnessDown exec "light -U 10; notify-send 'brightness down'";
+bindsym XF86MonBrightnessUp exec "light -A 15; notify-send 'brightness up'";
+bindsym XF86MonBrightnessDown exec "light -U 15; notify-send 'brightness down'";
+
+bindsym Print exec gnome-screenshot -i
+
+exec --no-startup-id redshift -l geoclue2
+

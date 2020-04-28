@@ -14,7 +14,7 @@
 - install gnome and i3
 - install feh and 'light' (https://github.com/haikarainen/light)
 
-## Geeneral dependencies
+## General dependencies
 
 * update and upgrade everything
 * install terminator and guake
@@ -36,6 +36,7 @@
 	- firefox, thunderbird,
 	- cuda and nvidia driver
 	- pcmanfm and audacious
+* install R from source and openblas
 * install fluxgui and redshift
 * clone my repositories using SSH
 * smaller things:

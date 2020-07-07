@@ -14,6 +14,7 @@ alias vim='nvim'
 alias clion='/opt/local/clion/current/bin/clion.sh &'
 alias pycharm='/opt/local/pycharm/current/bin/pycharm.sh &'
 alias webstorm='/opt/local/webstorm/current/bin/webstorm.sh &'
+alias intellij='/opt/local/intellij/current/bin/idea.sh &'
 alias clojure='java -jar /opt/local/clojure/clojure/clojure.jar'
 alias anyconnect='/opt/cisco/anyconnect/bin/vpnui'
 

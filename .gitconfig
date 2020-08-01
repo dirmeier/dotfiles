@@ -3,3 +3,4 @@
 	email = simon.dirmeier@web.de
 [core]
 	editor = vim
+	excludesfile = /home/simon/.gitignore_global

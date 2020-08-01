@@ -184,5 +184,3 @@ bindsym XF86MonBrightnessDown exec "light -U 15; notify-send 'brightness down'";
 
 bindsym Print exec gnome-screenshot -i
 
-exec --no-startup-id redshift -l geoclue2
-

@@ -1,16 +1,23 @@
 [global_config]
   handle_size = 0
+  scroll_tabbar = True
   title_receive_bg_color = "#729fcf"
   inactive_color_offset = 0.9722222222222222
+  suppress_multiple_term_dialog = True
+  title_use_system_font = False
+  title_font = Sans 8
 [keybindings]
-  split_horiz = <Primary><Shift>h
-  split_vert = <Primary><Shift>v
+  split_horiz = <Primary>h
+  split_vert = <Primary><Shift>h
+  close_term = <Primary>w
+  close_window = <Primary><Shift>w
   next_tab = <Primary>Right
   prev_tab = <Primary>Left
 [profiles]
   [[default]]
     background_color = "#002b36"
     cursor_color = "#aaaaaa"
+    font = Monospace 10
     foreground_color = "#839496"
     show_titlebar = False
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"

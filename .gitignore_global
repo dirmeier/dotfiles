@@ -3,3 +3,6 @@
 .idea/*
 CMakeLists.txt
 cmake-build-debug
+
+/home/simon/PROJECTS/cmdstan/stan*
+

@@ -2,7 +2,7 @@
 
 ## Arch linux
 
-- follow installation from: https://itsfoss.com/install-arch-linux/
+- follow installation from: https://itsfoss.com/install-arch-linux/ and https://wiki.archlinux.org/index.php/installation_guide
 - create 4 partitions:
 	- efi with 512M (EFI System)
 	- root with 64GB (Linux root x86_64)
@@ -12,16 +12,15 @@
 - add a user
 - install terminator
 - install gnome and i3
-- install feh and 'light' (https://github.com/haikarainen/light)
 
 ## General dependencies
 
 * update and upgrade everything
 * install terminator and guake
 * create an ssh key (ssh-keygen -t rsa) and add to GitHub.
-* install dropbox and setup firefox bookmarks as well as firefox addons
+* install firefox bookmarks as well as firefox addons
 * install git and add 'github/dotfiles' and copy relevent dotfiles
-* install zsh and zpretzo and add .zshrc and .zpreztorc
+* install zsh and zpretzo and add .zshrc and .zpreztorc (https://github.com/sorin-ionescu/prezto)
 * install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
 * install i3, i3-wm and add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
 * add .condarc and conda install environment called 'default'
@@ -30,14 +29,16 @@
 ```
 * install atom and add keymap
 * Install software, such as
-	- pycharm/webstorm/clion (add settings from dropbox), sublime
-	- r and rstudio
-	- skype, telegram, signal
-	- firefox, thunderbird,
-	- cuda and nvidia driver
-	- pcmanfm and audacious
-* install R from source and openblas
-* install fluxgui and redshift
+  - pycharm/webstorm/clion (add settings from dropbox), sublime
+  - install texlive
+  - install R from source and openblas
+  - rstudio
+  - skype, telegram, signal
+  - firefox, thunderbird,
+  - cuda and nvidia driver
+  - pcmanfm and audacious
+  - install redshift
+  - feh, 'light' (https://github.com/haikarainen/light)
 * clone my repositories using SSH
 * smaller things:
-	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)
+	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)GG

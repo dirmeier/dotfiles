@@ -2,5 +2,6 @@ anaconda_upload: true
 channels:
   - conda-forge
   - bioconda
+  - r
   - defaults
   - dirmeier

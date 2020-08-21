@@ -18,9 +18,10 @@
 ## General dependencies
 
 * update and upgrade everything
-* install terminator and guake
-* create an ssh key (ssh-keygen -t rsa) and add to GitHub.
+* install terminator
+* install cuda and nvidia driver
 * install firefox bookmarks as well as firefox addons
+* create an ssh key (ssh-keygen -t rsa) and add to GitHub.
 * install git and add 'github/dotfiles' and copy relevent dotfiles
 * install zsh and zpretzo and add .zshrc and .zpreztorc (https://github.com/sorin-ionescu/prezto)
 * install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
@@ -37,7 +38,6 @@
   - rstudio
   - skype, telegram, signal
   - firefox, thunderbird,
-  - cuda and nvidia driver
   - pcmanfm and audacious
   - install redshift
   - feh, 'light' (https://github.com/haikarainen/light)

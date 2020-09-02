@@ -1,47 +1,54 @@
 # Install guides for my computers
 
-## Arch linux
+## Arch linux installation
 
-- follow installation from: https://itsfoss.com/install-arch-linux/ and https://wiki.archlinux.org/index.php/installation_guide
-- create 4 partitions:
+* follow installation from: https://itsfoss.com/install-arch-linux/ and https://wiki.archlinux.org/index.php/installation_guide
+* create 4 partitions:
 	- efi with 512M (EFI System, fat32)
 	- root with 64GB (Linux root x86_64, ext4)
 	- swap with 16GB (Linux swap, swap)
 	- home with rest (Linux home, ext4)
-- mount everthing correctly including home!\
-- pacstrap /mnt base base-devel linux linux-firmware vim nano vi
-- add a user
-- install terminator
-- install gnome and i3
-- install yay
+* mount everthing correctly including home!\
+* pacstrap /mnt base base-devel linux linux-firmware vim nano vi
+* add a user
+* install terminator
+* install gnome and i3
+* install yay
+
 
 ## General dependencies
 
-* update and upgrade everything
-* install terminator
-* install cuda and nvidia driver
 * install firefox bookmarks as well as firefox addons
 * create an ssh key (ssh-keygen -t rsa) and add to GitHub.
 * install git and add 'github/dotfiles' and copy relevent dotfiles
 * install zsh and zpretzo and add .zshrc and .zpreztorc (https://github.com/sorin-ionescu/prezto)
 * install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
-* install i3, i3-wm and add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
 * add .condarc and conda install environment called 'default'
 ```bash
 ~/miniconda3/bin/conda create -n default python=3.*
 ```
-* install atom and add keymap
+* install atom and add keymap, sublime
 * Install software, such as
-  - pycharm/webstorm/clion (add settings from dropbox), sublime
+  - pycharm/webstorm/clion
   - install texlive
-  - install R from source and openblas
-  - rstudio
+  - install R from source and openblas, and rstudio
   - skype, telegram, signal
   - firefox, thunderbird,
-  - pcmanfm and audacious
-  - install redshift
-  - feh, 'light' (https://github.com/haikarainen/light)
 * clone my repositories using SSH
 * smaller things:
 	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)
 	- firefox dark ocean theme and firefox adblocks
+
+## Linux 
+
+* update and upgrade everything
+* install terminator
+* install cuda and nvidia driver
+* pcmanfm and audacious
+* install redshift
+* feh, 'light' (https://github.com/haikarainen/light)
+* install i3, i3-wm and add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
+
+## MAC
+
+- install spectacle

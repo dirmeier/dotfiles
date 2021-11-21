@@ -1,2 +1,0 @@
-0 12,15,18 * * * /home/simon/PROJECTS/sars-cov-2-viz/run.sh  >/dev/null 2>&1
-

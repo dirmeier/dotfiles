@@ -1,6 +1,7 @@
 [user]
 	name = Simon Dirmeier
-	email = simon.dirmeier@web.de
+	email = simd23@protonmail.com
 [core]
 	editor = vim
-	excludesfile = /home/simon/.gitignore_global
+  excludesfile = /home/simon/.gitignore_global
+

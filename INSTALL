@@ -11,10 +11,10 @@
 * mount everthing correctly including home!\
 * pacstrap /mnt base base-devel linux linux-firmware vim nano vi
 * add a user
-* install terminator
-* install gnome and i3
-* install yay
-
+* install 
+  - terminator
+  - gnome, i3, i3-wm
+  -  yay
 
 ## General dependencies
 
@@ -24,31 +24,25 @@
 * install zsh and zpretzo and add .zshrc and .zpreztorc (https://github.com/sorin-ionescu/prezto)
 * install neovim, add "nvim/init.vim" and install Vundle (git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim) using PluginInstall
 * add .condarc and conda install environment called 'default'
-```bash
-~/miniconda3/bin/conda create -n default python=3.*
-```
-* install atom and add keymap, sublime
-* Install software, such as
-  - pycharm/webstorm/clion
-  - install texlive
-  - install R from source and openblas, and rstudio
-  - skype, telegram, signal
+* add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
+* install software, such as
+  - dropbox
+  - atom (+ keymap.cson file),
+  - sublime,
+  - pycharm/webstorm/clion/intellij/julia vs-code,
+  - install texlive,
+  - signal,
   - firefox, thunderbird,
+  - pacman
+  - redshift,
+  - audacious, 
+  - asunder
+  - feh, 'light' (https://github.com/haikarainen/light)
+* add bookmarks to firefox from dropbox
 * clone my repositories using SSH
-* smaller things:
-	- customize arch/ubuntu using gnome tweak utils (remove window borders, etc.)
-	- firefox dark ocean theme and firefox adblocks
-
-## Linux 
-
-* update and upgrade everything
-* install terminator
 * install cuda and nvidia driver
-* pcmanfm and audacious
-* install redshift
-* feh, 'light' (https://github.com/haikarainen/light)
-* install i3, i3-wm and add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
+* smaller things:
+	- customize arch using gnome tweak utils (remove window borders, etc.)
+	- firefox adblocks
 
-## MAC
 
-- install spectacle

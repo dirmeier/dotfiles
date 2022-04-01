@@ -14,7 +14,7 @@
 * install 
   - terminator
   - gnome, i3, i3-wm
-  -  yay
+  - yay
 
 ## General dependencies
 
@@ -32,17 +32,17 @@
   - pycharm/webstorm/clion/intellij/julia vs-code,
   - install texlive,
   - signal,
-  - firefox, thunderbird,
+  - firefox, thunderbird, protonmail
   - pacman
   - redshift,
   - audacious, 
   - asunder
   - feh, 'light' (https://github.com/haikarainen/light)
+  - flux
 * add bookmarks to firefox from dropbox
 * clone my repositories using SSH
 * install cuda and nvidia driver
 * smaller things:
 	- customize arch using gnome tweak utils (remove window borders, etc.)
 	- firefox adblocks
-
 

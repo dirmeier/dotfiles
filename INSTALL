@@ -26,6 +26,7 @@
 * add .condarc and conda install environment called 'default'
 * add configs from dotfiles (help: https://i3wm.org/docs/userguide.html)
 * install software, such as
+  - docker
   - dropbox
   - atom (+ keymap.cson file),
   - sublime,

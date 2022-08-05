@@ -110,7 +110,25 @@ shift + cmd - 2 : yabai -m window --space 2
 shift + cmd - 3 : yabai -m window --space 3
 shift + cmd - 4 : yabai -m window --space 4
 shift + cmd - 5 : yabai -m window --space 5
+shift + cmd - 6 : yabai -m window --space 6
 
+shift + alt - a : yabai -m window --resize left:-30:0
+shift + alt - d : yabai -m window --resize left:30:0
 
-shift + cmd - a : yabai -m window --resize left:-20:0
-shift + cmd - f : yabai -m window --resize left:20:0
+alt - h : yabai -m window --focus west
+alt - j : yabai -m window --focus south
+alt - k : yabai -m window --focus north
+alt - l : yabai -m window --focus east
+
+alt + shift - h : yabai -m window --swap west || $(yabai -m window --display west; yabai -m display --focus west)
+alt + shift - j : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - k : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - l : yabai -m window --swap east || $(yabai -m window --display east; yabai -m display --focus east)
+
+alt + ctrl - h : yabai -m window --insert west
+alt + ctrl - j : yabai -m window --insert south
+alt + ctrl - k : yabai -m window --insert north
+alt + ctrl - l : yabai -m window --insert east
+
+alt - b : yabai -m space --focus recent
+alt - v: yabai -m window --toggle split

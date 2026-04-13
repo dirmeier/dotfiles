@@ -1,0 +1,14 @@
+{
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "[python]": {
+    "editor.rulers": [
+      80
+    ],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "charliermarsh.ruff",
+  },
+  "python.analysis.typeCheckingMode": "basic",
+}

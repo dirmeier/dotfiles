@@ -10,5 +10,13 @@
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "charliermarsh.ruff",
   },
-  "python.analysis.typeCheckingMode": "basic",
+  "[julia]": {
+    "editor.rulers": [
+      80
+    ],
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "julialang.language-julia",
+  },
+  "julia.executablePath": "/Users/simon/.juliaup/bin/julia"
 }

@@ -1,0 +1,27 @@
+{
+	"folders": [],
+	"settings": {
+		"python-envs.pythonProjects": [
+        {
+            "path": ".",
+            "envManager": "ms-python.python:venv",
+            "packageManager": "ms-python.python:pip",
+            "python.defaultInterpreterPath": ".venv/bin/python",
+        },		
+    	],
+	"workbench.tree.indent": 20,
+        "workbench.tree.renderIndentGuides": "always",
+        "explorer.compactFolders": false
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+    {
+      "name": "Python Debugger: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+    },
+    ]
+	},
+}

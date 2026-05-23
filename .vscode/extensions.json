@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "anthropic.claude-code",
+        "charliermarsh.ruff",
+        "editorconfig.editorconfig",
+        "garytyler.darcula-pycharm",
+        "magicstack.magicpython",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.vscode-python-envs",
+        "ms-vscode.cpptools",
+        "nicohlr.pycharm",
+        "tamasfe.even-better-toml",
+        "upstash.context7-mcp"
+    ]
+}

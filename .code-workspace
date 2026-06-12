@@ -29,6 +29,7 @@
       "anthropic.claude-code",
       "charliermarsh.ruff",
       "editorconfig.editorconfig",
+      "garytyler.darcula-pycharm",
       "magicstack.magicpython",
       "ms-python.debugpy",
       "ms-python.python",

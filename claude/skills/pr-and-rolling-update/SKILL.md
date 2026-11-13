@@ -1,11 +1,11 @@
 ---
 name: pr-and-rolling-update
-description: Open a draft pull request for a spike's umbrella branch, then keep it current as part branches merge into it. Creates the draft PR with a body that shows the current state and results, ends the body with "Closes #issue", and posts one short pointer comment on the issue. After each part-branch merge it pushes the umbrella branch, rewrites the PR body, adds a dated EDIT line, and updates the issue comment. When the user says the spike is finished, it collects the results of all parts into ONE report and recommendation document, links it from the PR body, and switches the issue comment to the result form. Use this whenever the user asks to open or create the PR for a spike, says "update the PR", "push and update the PR body", "part NN is merged", "sub-branch merged into the umbrella", finishes a part of a rolling spike, says the spike is finished, or asks for the final report, even if they do not name the skill. Do not use it for ordinary feature or fix PRs.
+description: Open a draft pull request for a spike's umbrella branch, then keep it current as part branches merge into it. Creates the draft PR with a body that shows the current state and results, ends the body with "Closes #issue", and posts one short pointer comment on the issue. After each part-branch merge it pushes the umbrella branch, rewrites the PR body, adds a dated EDIT line, and updates the issue comment. When the user says the spike is finished, it collects the results of all parts into ONE final document with a short, unnumbered name (for example REPORT.md or RECOMMENDATION.md; the skill proposes the name that fits), links it from the PR body, and switches the issue comment to a short result form. Use this whenever the user asks to open or create the PR for a spike, says "update the PR", "push and update the PR body", "part NN is merged", "sub-branch merged into the umbrella", finishes a part of a rolling spike, says the spike is finished, or asks for the final report, even if they do not name the skill. Do not use it for ordinary feature or fix PRs.
 ---
 
 # PR and rolling update
 
-Colleagues follow a spike by reading its draft PR. The PR body must show the current state at any moment, and the issue must point to it. This skill creates the PR once, then refreshes the body and the issue comment after every part merge. When the spike is finished, it collects all results into one report document.
+Colleagues follow a spike by reading its draft PR. The PR body must show the current state at any moment, and the issue must point to it. This skill creates the PR once, then refreshes the body and the issue comment after every part merge. When the spike is finished, it collects all results into one final document with a short, unnumbered name, such as `REPORT.md`.
 
 ## The setup this skill assumes
 
@@ -23,7 +23,7 @@ Do this before any write. A wrong issue number or a stale results file is hard t
 - **Umbrella branch and worktree path:** `rtk proxy git worktree list`, matched against the current directory.
 - **Existing PR:** `gh pr list --head <umbrella> --json number,url,isDraft`. None means Mode A. One means Mode B.
 - **Issue to close:** read it from the last line of the existing PR body. For a new PR, read it from the spike's question or design doc. Two issue numbers usually mean a parent and a child. The child gets `Closes`, and the first line of the body says `Part of #<parent>.` If this is still unclear, ask the user.
-- **Results files:** the findings, report or recommendation files of the spike (for example `experiments/<spike>/docs/architecture-design/NN-*-findings.md`, the filled report skeleton, or `RECOMMENDATION.md`). The body is a summary of these files. Read all that changed since the last update.
+- **Results files:** the findings, report or recommendation files of the spike (for example the numbered per-part files `experiments/<spike>/docs/architecture-design/NN-*-findings.md`, the filled report skeleton, or the final document such as `REPORT.md`). The body is a summary of these files. Read all that changed since the last update.
 - **Results files are committed:** run `cd <absolute worktree path> && rtk proxy git ls-files --error-unmatch <file>` for each file you will link. If a file is untracked or ignored by git, its link shows a 404 page. Name the file to the user and do not link it.
 - **Repo URL:** `gh repo view --json url --jq .url`.
 
@@ -130,29 +130,43 @@ While the spike runs, the comment stays this short:
 
 ```
 <!-- pr-and-rolling-update -->
-Draft PR #488 holds the current results. Last update: 2026-11-13 (part 04).
-Results are written to <link to the results file or folder>.
+PR #488 holds the current results. Full write-up: <link to the results file or folder>.
+Last update: 2026-11-13 (part 04).
 ```
 
-Switch to the result form only when the user says the spike is finished, the final report from Mode D exists, and the user has okayed it. Never decide this yourself, because a result in the issue is read as the final answer. Then replace the text with the result:
+Switch to the result form only when the user says the spike is finished (the PR is done), the final document from Mode D exists, and the user has okayed it. Never decide this yourself, because a result in the issue is read as the final answer. Then replace the text with the result:
 
 ```
 <!-- pr-and-rolling-update -->
-Spike result: <one-line verdict>. Resolved in PR #485. Full write-up: <link>.
+PR #488 holds the results. Full write-up: [<file name>](<branch link to the final document>).
+Last update: 2026-11-13 (part 05).
+
+<Label>: <headline>. <Two or three short sentences: what works, what works with limits, what does not work.>
+
+<Question or metric 1>: <VERDICT>. <the number with its denominator, and one short fact>.
+<Question or metric 2>: <VERDICT>. <the number with its denominator, and one short fact>.
 ```
 
-Take the verdict from the final report. Do not write a result that no file states. If the report does not exist yet, run Mode D first, or keep the short progress form.
+Rules for the result form:
+- Line 1 is always the marker, because the skill finds its comment by it.
+- The label fits the kind of result. `Spike result` fits a spike with pass marks. `Recommendation`, `Decision`, `Finding` or another plain word fits other work. The headline is the verdict (VALIDATED, PARTIAL or INVALIDATED) when the work has pass marks. Otherwise it is the recommendation or decision in a few words.
+- Propose the label together with the file name of the final document. The user okays both.
+- Write one line per row of the status table in the final document, in the same order. Without a status table, write one line per question or main point. Each line holds the name, the verdict and the number with its denominator. Add the one fact a reader needs, for example which part is weak.
+- Use no table and no bullets. The final document holds the detail.
+- Take every verdict and number from the final document. Do not write a result that no file states.
+- Keep the `Last update` line current on every later edit of the comment.
+- If the final document does not exist yet, run Mode D first, or keep the short progress form.
 
 ## Mode D: Final report
 
 Run this only when the user says the spike is finished. Never decide it yourself. The final result must live in ONE document, so a reader does not have to open every part file.
 
 1. Read every results file of every part: the per-part findings files, the filled report skeleton and the current PR body.
-2. Find the one document. Look for an existing `RECOMMENDATION.md` or final report in the spike's docs folder. If none exists, create `<results folder>/NN-report-and-recommendation.md`, numbered after the last file in that folder. Never write a second summary file.
+2. Find the one document. The per-part findings files keep their numbers (`NN-*-findings.md`). Only this final document has a short, plain name and no number, such as `REPORT.md`, `RECOMMENDATION.md`, `DECISION.md` or `FINDINGS.md`. Look in the spike's docs folder for an existing one first. If the report started as a numbered file, such as `01-report-skeleton.md`, rename it with `rtk proxy git mv` and fix every reference to the old name. If none exists, create `<results folder>/<NAME>.md`. Choose the name that fits the kind of result, and propose it to the user in step 5. Never write a second summary file.
 3. Collect all results in that document, with this layout:
 
    ```markdown
-   # <Spike name>: report and recommendation
+   # <Spike name>: <kind of document, such as report, recommendation or decision>
 
    **Question:** <the question the spike answers, one sentence>.
    **Recommendation:** <what to do, one or two sentences>.
@@ -178,9 +192,9 @@ Run this only when the user says the spike is finished. Never decide it yourself
    ```
 
 4. Every number comes from a part's findings file, with its denominator, part and seed. When a later part replaced an earlier number, show the later number and say in one line that it replaced the earlier one. Never show two conflicting numbers as if both were current.
-5. Show the file path to the user and wait for their ok. Do not commit the document before they have read it.
+5. Show the file path to the user, with the proposed file name and the proposed issue comment label (Mode C). Wait for their ok. Do not commit the document before they have read it.
 6. After the ok, commit it on the umbrella branch (`docs(<scope>): ...`) and push. Then update the PR (Mode B, steps 2 to 5): point `Details:` at this document, make sure the numbers in the body match it, and add an EDIT line such as `EDIT (2026-11-13): added the final report and recommendation`.
-7. Update the issue comment to its result form (Mode C), with a link to this document.
+7. Update the issue comment to its result form (Mode C), with the verdicts from this document and a link to it.
 
 ## Rules that never bend
 
@@ -188,5 +202,5 @@ Run this only when the user says the spike is finished. Never decide it yourself
 - Never use `--no-verify`. Never force-push. Never merge the PR.
 - Do not run benchmarks or scripts. Read results from the files.
 - Do not open an issue. Only comment on the existing one.
-- At the end, all results live in ONE report and recommendation document. The PR body and the issue comment link to it. Never create a second summary file.
+- At the end, all results live in ONE final document with a short, plain name and no number, such as `REPORT.md` or `RECOMMENDATION.md`. The per-part findings files keep their numbers. The PR body and the issue comment link to the final document. Never create a second summary file.
 - When something is unclear (which issue, which file holds the results, whether the spike is finished), ask the user in one short question.

@@ -1,0 +1,60 @@
+{
+  "skill_name": "pr-and-rolling-update",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "part 04 of the summary-layers spike is merged into the umbrella. push the umbrella and update the PR body and the issue.",
+      "expected_output": "Mode B. Rewritten PR body for PR #488 with part 04 results from the findings file, changed numbers replaced (not duplicated), an EDIT line for part 04 above the Details line, last line 'Closes #468'. Issue #468 gets one new pointer comment with the marker. No git push or gh command is run.",
+      "files": [],
+      "expectations": [
+        "PR body ends with the line 'Closes #468'",
+        "PR body has one EDIT line dated 2026-11-13 that names part 04",
+        "The EDIT line sits after the 'Next' line and before the 'Details:' line",
+        "All five metrics of the status table (Back references, LAGOM faithfulness, Blocks, Meeting type, Title) are still in the table",
+        "The old 'Next' line (part 04 is the full run) is gone or rewritten",
+        "Three part 04 numbers in the body match 07-full-run-findings.md and carry denominators",
+        "No metric shows two different numbers for the same fact",
+        "The issue comment starts with the marker <!-- pr-and-rolling-update --> and has at most 4 lines",
+        "The issue comment links the results with a branch URL (blob/spike/467-468-summary-layers/), not a commit hash",
+        "commands.md pushes the umbrella branch without force and edits the PR with --body-file -",
+        "commands.md creates the issue comment (no marker comment exists yet) and posts only one",
+        "commands.md has no 'gh pr ready', no 'gh pr merge' and no --no-verify"
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "open the draft PR for the typed-artefact-routing spike.",
+      "expected_output": "Mode A. Title 'spike(334-typed-artefact-routing): ... (#334)' with no [DO NOT MERGE] prefix. Draft PR command against base develop with the body on stdin. Body built from the spike's RECOMMENDATION.md, no Edits section, last line 'Closes #334'. One issue comment with the marker, pointing to the PR and the results file.",
+      "files": [],
+      "expectations": [
+        "Title matches spike(<scope>): ... (#334), has no '[DO NOT MERGE]' and does not start with feat",
+        "commands.md pushes the umbrella branch before it creates the PR",
+        "commands.md creates a draft PR against develop from spike/334-typed-artefact-routing, with the body on stdin",
+        "PR body has no '## Edits' section and no EDIT line",
+        "PR body ends with the line 'Closes #334' and has no 'Generated with' line",
+        "PR body links RECOMMENDATION.md with a branch URL, not a commit hash",
+        "PR body gives verdict words (VALIDATED, PARTIAL or INVALIDATED) for the fixes tried",
+        "Three numbers in the body match RECOMMENDATION.md and carry denominators or sample sizes",
+        "The issue comment starts with the marker, names the PR (#NNN) and links the results file on the branch",
+        "The issue comment is posted once and the issue body is not edited"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "the typed-artefact-routing spike is finished and RECOMMENDATION.md is final. update the PR and the issue.",
+      "expected_output": "Mode B plus the result form of Mode C. The existing marker comment on issue #334 is edited in place (PATCH with its comment ID, no new comment) and now states the one-line result from RECOMMENDATION.md with the PR number and a link to the write-up. PR body keeps one number per fact, gets an EDIT line, ends with 'Closes #334'.",
+      "files": [],
+      "expectations": [
+        "commands.md edits the existing marker comment in place with a PATCH to comment ID 1111111113",
+        "commands.md posts no new issue comment and does not edit the issue body",
+        "The issue comment starts with the marker, then 'Spike result:'",
+        "The one-line result says: separate extraction pass, one second call per chunk",
+        "The issue comment names PR #485 and links RECOMMENDATION.md with a branch URL",
+        "PR body ends with the line 'Closes #334'",
+        "PR body has one EDIT line dated 2026-11-13, above 'Closes #334'",
+        "No fact appears with two different numbers in the PR body",
+        "PR title is unchanged and the PR stays a draft (no 'gh pr ready')"
+      ]
+    }
+  ]
+}

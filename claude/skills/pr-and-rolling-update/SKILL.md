@@ -36,7 +36,10 @@ Reading an issue: `gh issue view N` prints nothing here. Use `gh issue view N --
 ## Mode A: Create the draft PR
 
 1. Check the finished parts are in the umbrella (`rtk proxy git merge-base --is-ancestor <part> <umbrella>`). Push: `rtk proxy git push -u origin <umbrella>`.
-2. Pick the title. Format: `spike(<scope>): <what the spike answers> (#<issues>)`. The scope is the experiment folder name. Look at sibling spike PRs (`gh pr list --search spike`) for wording. The type is always `spike`, never `feat`.
+2. Propose the title and wait for the user's ok. Format: `spike(<scope>): <what the spike answers> (#<issues>)`. The type is always `spike`, never `feat`.
+   - **Scope:** the short series name that the sibling spike PRs use. Run `gh pr list --state all --search "spike in:title"`. If a sibling of the same series exists, copy its scope exactly (PR #488 uses `summary-layers`). Never use the experiment folder name or a number prefix.
+   - **Issues:** the parent (epic) first, then the main issue of the spike. A pilot issue that the PR also closes goes into `Closes` lines in the body, not into the title.
+   - **Ask:** show the user the proposed title and the sibling title it copies from. Do not run `gh pr create` before the user okays it.
 3. Write the body (layout below). Leave out the EDIT lines. The first version is not an edit.
 4. Create it as a draft, with the body read from stdin so no temp file is needed:
    ```bash

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Block any commit whose staged additions contain a Claude credential.
+# Activated by: git config core.hooksPath .githooks
+set -euo pipefail
+
+# Generic secret signatures only — no host/vendor names hardcoded here.
+#   - the env var names that carry the token and gateway URL
+#   - a JWT/base64-JSON token prefix ("eyJ...")
+patterns='ANTHROPIC_AUTH_TOKEN|ANTHROPIC_BASE_URL|eyJ[A-Za-z0-9_+/=-]{20,}'
+
+# Look only at added lines in the staged diff, excluding diff file headers (+++).
+offenders="$(git diff --cached -U0 --no-color \
+    | grep -E '^\+' \
+    | grep -vE '^\+\+\+' \
+    | grep -nE "$patterns" || true)"
+
+if [[ -n "$offenders" ]]; then
+    echo "ERROR: pre-commit blocked the commit — staged changes look like a secret." >&2
+    echo "Offending added lines:" >&2
+    echo "$offenders" >&2
+    echo >&2
+    echo "Keep credentials in ~/.config/claude/secrets.zsh (outside this repo)." >&2
+    echo "If this is a genuine false positive, commit with --no-verify." >&2
+    exit 1
+fi
+
+exit 0

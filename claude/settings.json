@@ -1,6 +1,30 @@
 {
-  "env": {},
-  "model": "sonnet[1m]",
+  "model": "sonnet",
+  "theme": "dark",
+  "effortLevel": "xhigh",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/ste100-reminder.sh"
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
@@ -9,7 +33,40 @@
     "claude-md-management@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "github@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "clangd-lsp@claude-plugins-official": true,
+    "academic-research-skills@academic-research-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "remember@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "cache-tax@claude-code-mods": true
   },
-  "extraKnownMarketplaces": {}
+  "extraKnownMarketplaces": {
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    },
+    "academic-research-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Imbad0202/academic-research-skills"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "claude-code-mods": {
+      "source": {
+        "source": "github",
+        "repo": "karanb192/claude-code-mods"
+      }
+    }
+  }
 }

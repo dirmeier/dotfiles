@@ -1,0 +1,6 @@
+# Claude user-local settings overlay (machine-specific), if ever present.
+settings.local.json
+
+# Backups created by bootstrap.sh
+*.bak
+*.bak.*

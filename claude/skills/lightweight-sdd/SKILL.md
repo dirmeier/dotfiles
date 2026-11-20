@@ -1,11 +1,11 @@
 ---
 name: lightweight-sdd
-description: Execute an implementation plan with a fresh subagent per task, like superpowers:subagent-driven-development but with far fewer reviews - implementer self-review gates every task, a task review runs only for tasks flagged risky, and one final whole-branch review closes the plan. Use whenever the user asks for "lightweight SDD", "light SDD", "SDD lite", "quick/cheap/fast subagent execution", or wants to run a plan with subagents with fewer reviews or less overhead, even if they never name this skill. Prefer it over subagent-driven-development when speed and token cost matter more than a review after every task.
+description: Execute an implementation plan with a fresh subagent per task, like superpowers:subagent-driven-development but with far fewer reviews - implementer self-review gates every task, a task review runs only for tasks flagged risky, and one final whole-branch review closes the plan. Every subagent runs on the cheapest model that can do its job (haiku first). Use whenever the user asks for "lightweight SDD", "light SDD", "SDD lite", "quick/cheap/fast subagent execution", or wants to run a plan with subagents with fewer reviews or less overhead, even if they never name this skill. Prefer it over subagent-driven-development when speed and token cost matter more than a review after every task.
 ---
 
 # Lightweight SDD
 
-Run a written plan by dispatching one fresh implementer subagent per task and coordinating from this session. Reviews are the expensive part of full subagent-driven development, so this version spends them where the risk is: the implementer's tests and self-review gate every task, tasks flagged risky get one extra review, and the whole branch gets one review at the end.
+Run a written plan by dispatching one fresh implementer subagent per task and coordinating from this session. Reviews are the expensive part of full subagent-driven development, so this version spends them where the risk is: the implementer's tests and self-review gate every task, tasks flagged risky get one extra review, and the whole branch gets one review at the end. Every role runs on the cheapest model that can do it (see Model selection).
 
 Use `superpowers:subagent-driven-development` instead when every task needs independent assurance (a security-critical plan, an unfamiliar codebase).
 
@@ -30,13 +30,15 @@ Use `superpowers:subagent-driven-development` instead when every task needs inde
 
 ## Model selection
 
-Pick the cheapest model that can do the role. Judge each task from the plan's text, one task at a time. Never pass `fable`; opus is the top tier.
+Pick the cheapest model that can do the role. Start every dispatch at `haiku` and move up only when the task needs it. Judge each task from the plan's text, one task at a time. Pass `model` explicitly on every dispatch; an omitted `model` runs on the session model, which is the expensive default. Never pass `fable`. Use `opus` only when the user asks for it.
 
-- **Simple task** (the plan gives exact names, signatures and tests; one or two files; or the same edit repeated): `model: "haiku"`.
-- **Normal task** (new logic with many branches, joins the output of earlier tasks, or needs debugging): omit `model`, so it uses this session's model.
-- **Task that needs design judgment:** `model: "opus"`.
-- **Task reviewer:** the same judgment scaled to the diff. `haiku` for a small mechanical diff, the session model for most diffs, `opus` for a risky one.
-- **Final reviewer:** `opus`.
+- **Simple task** (the plan gives exact names, signatures and tests; one to three files; or the same edit repeated): `model: "haiku"`.
+- **Normal task** (new logic with many branches, joins the output of earlier tasks, or needs debugging): `model: "sonnet"`.
+- **Task that needs design judgment:** `model: "sonnet"`.
+- **Task reviewer:** `haiku` for a small or mechanical diff, `sonnet` for a large or risky diff.
+- **Fix agent:** the same model as the task it fixes.
+- **Final reviewer:** `sonnet`.
+- **Moving up:** a task that comes back `BLOCKED` on `haiku` goes to `sonnet`. A task that comes back `BLOCKED` on `sonnet` gets split or a plan ruling first; ask the user before you use `opus`.
 
 Write `Model: Task N - <tier> - <why>` in the ledger for each dispatch, so the user can see what ran where.
 
@@ -98,7 +100,7 @@ Do not pre-judge findings for a reviewer. If the prompt you are writing says "do
 
 ## Final review
 
-When all tasks are complete, write the review package over the whole branch (`{ git log --oneline MERGE_BASE..HEAD; git diff --stat MERGE_BASE..HEAD; git diff MERGE_BASE..HEAD; } > "$WS/final.diff"`, where MERGE_BASE is the commit the branch started from, e.g. `git merge-base origin/develop HEAD`) and dispatch one reviewer on opus with the reviewer template. Give it the plan path as well: without the plan's text it can only guess at the intended behaviour and pads its report with speculative minors.
+When all tasks are complete, write the review package over the whole branch (`{ git log --oneline MERGE_BASE..HEAD; git diff --stat MERGE_BASE..HEAD; git diff MERGE_BASE..HEAD; } > "$WS/final.diff"`, where MERGE_BASE is the commit the branch started from, e.g. `git merge-base origin/develop HEAD`) and dispatch one reviewer on `sonnet` with the reviewer template. Give it the plan path as well: without the plan's text it can only guess at the intended behaviour and pads its report with speculative minors.
 
 If it returns findings, dispatch ONE fix subagent with the complete list, never one fixer per finding. Re-review that fix diff once only when the final review reported a Critical finding. Park or rule on any residual finding; residual load-bearing ones surface to the user when finishing the branch.
 

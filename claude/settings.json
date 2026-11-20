@@ -67,6 +67,27 @@
         "source": "github",
         "repo": "karanb192/claude-code-mods"
       }
+    },
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
     }
-  }
+  },
+  "modelSettings": {
+    "claude-sonnet-5-5": {
+      "effortLevel": "xhigh",
+      "autoCompactWindow": 200000
+    },
+    "claude-opus-5-5": {
+      "autoCompactWindow": 200000
+    },
+    "claude-haiku-5-5": {
+      "autoCompactWindow": 200000
+    }
+  },
+  "promptCacheTtl": "1h",
+  "autoUpdatesChannel": "latest",
+  "autoCompactWindow": 200000
 }

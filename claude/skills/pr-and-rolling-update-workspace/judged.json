@@ -1,0 +1,22 @@
+{
+  "eval-0-update-after-part-04-merge|with_skill": {
+    "5": [true, "Spot checks against 07-full-run-findings.md: LAGOM 155/180 (86%), blocks 594/639 (93%), meeting type 72/90 (80%). All match and carry denominators."],
+    "6": [true, "All five status rows now cite part 04 only. The old caveat phrases ('one or two texts', 'Part 04 runs the 30 texts') are gone."]
+  },
+  "eval-0-update-after-part-04-merge|without_skill": {
+    "5": [true, "Spot checks against 07-full-run-findings.md: LAGOM 155 of 180 (86%), blocks 594 of 639 (93%), meeting type 72 of 90 (80%). All match and carry denominators."],
+    "6": [true, "All five status rows now cite part 04 only. The old caveat phrases ('one or two texts', 'Part 04 runs the 30 texts') are gone."]
+  },
+  "eval-1-create-pr-for-new-spike|with_skill": {
+    "7": [true, "57% (51/90), 72% (65/90), 45% (87/192) and 64% (123/192) all appear in RECOMMENDATION.md. The body also says 240 planted moments in round 2, which RECOMMENDATION.md does not state (it comes from the git-ignored round 2 report)."]
+  },
+  "eval-1-create-pr-for-new-spike|without_skill": {
+    "7": [true, "Round 1 57% and 72%, round 2 45% (87/192) and 64% (123/192) match RECOMMENDATION.md. The body also says 240 planted sentences, which RECOMMENDATION.md does not state (it comes from the git-ignored round 2 report)."]
+  },
+  "eval-2-finish-spike-result-comment|with_skill": {
+    "7": [true, "Number-set diff against the old body: no old number vanished. Only the counts 51/90 and 65/90 were added, and they agree with the old percentages."]
+  },
+  "eval-2-finish-spike-result-comment|without_skill": {
+    "7": [true, "Number-set diff against the old body: no old number vanished. Only the percentages 10%, 11%, 2%, 27% and 37% were added. Not checked line by line."]
+  }
+}

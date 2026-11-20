@@ -17,9 +17,12 @@ only, never deletes, never commits):
 
 It does three things:
 1. Merges `enabledPlugins` / `extraKnownMarketplaces` present in the live
-   `~/.claude/settings.json` but missing from `claude/settings.json`. Leaves
-   `model`/`theme`/`effortLevel`/`env`/`hooks` alone — those are either
-   deliberate repo config or machine-secret and must not come from live.
+   `~/.claude/settings.json` but missing from `claude/settings.json`. Also copies
+   an allowlist of preference keys from live (live wins): `effortLevel`,
+   `modelSettings`, `autoCompactWindow`, `promptCacheTtl`,
+   `subagentPromptCacheTtl`, `autoUpdatesChannel` (`PREF_KEYS` in the script). Leaves
+   `model`/`theme`/`env`/`hooks`/`permissions` alone — those are either
+   deliberate repo config, machine-specific or machine-secret.
 2. For `skills/`, `agents/`, `memory/`: if the live path is still the
    intended symlink into this repo, does nothing. If it drifted into a real
    copy (this happens — see "Known drift" below), copies new/changed files

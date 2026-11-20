@@ -9,7 +9,7 @@ subscription, so no token or gateway URL is configured anywhere.
 | Kind | What | Strategy |
 |------|------|----------|
 | **Authored content** | `skills/`, `agents/`, `memory/`, `hooks/`, `global-CLAUDE.md`, `RTK.md` | **Symlinked** into `~/.claude/` — the repo is the single source of truth, so edits show up in `git status` immediately and a `git pull` on another machine is instantly live. |
-| **Declarative config** | `settings.json` | **Symlinked** into `~/.claude/settings.json`. Holds model, theme, effort level, hooks, enabled plugins, and known marketplaces. No credentials. |
+| **Declarative config** | `settings.json` | **Symlinked** into `~/.claude/settings.json`. Holds model, theme, effort level, per-model settings, cache TTLs, update channel, hooks, enabled plugins, and known marketplaces. No credentials. |
 | **Plugins & marketplaces** | the 16 enabled plugins | Installed by `install-plugins.sh`, which reads the list straight out of `settings.json` (so the two can't drift). |
 
 ## Files

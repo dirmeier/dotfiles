@@ -1,0 +1,70 @@
+{
+  "expectations": [
+    {
+      "text": "PR body ends with the line 'Closes #468'",
+      "passed": true,
+      "evidence": "last line is 'Closes #468'"
+    },
+    {
+      "text": "PR body has one EDIT line dated 2026-11-13 that names part 04",
+      "passed": true,
+      "evidence": "EDIT lines found: ['EDIT (2026-11-13): added results of part 04']"
+    },
+    {
+      "text": "The EDIT line sits after the 'Next' line and before the 'Details:' line",
+      "passed": true,
+      "evidence": "Next at line 118, EDIT at 122, Details at 124"
+    },
+    {
+      "text": "All five metrics of the status table (Back references, LAGOM faithfulness, Blocks, Meeting type, Title) are still in the table",
+      "passed": true,
+      "evidence": "missing rows: []"
+    },
+    {
+      "text": "The old 'Next' line (part 04 is the full run) is gone or rewritten",
+      "passed": true,
+      "evidence": "old Next line is gone"
+    },
+    {
+      "text": "Three part 04 numbers in the body match 07-full-run-findings.md and carry denominators",
+      "passed": true,
+      "evidence": "Spot checks against 07-full-run-findings.md: LAGOM 155/180 (86%), blocks 594/639 (93%), meeting type 72/90 (80%). All match and carry denominators."
+    },
+    {
+      "text": "No metric shows two different numbers for the same fact",
+      "passed": true,
+      "evidence": "All five status rows now cite part 04 only. The old caveat phrases ('one or two texts', 'Part 04 runs the 30 texts') are gone."
+    },
+    {
+      "text": "The issue comment starts with the marker <!-- pr-and-rolling-update --> and has at most 4 lines",
+      "passed": true,
+      "evidence": "3 lines, first line '<!-- pr-and-rolling-update -->'"
+    },
+    {
+      "text": "The issue comment links the results with a branch URL (blob/spike/467-468-summary-layers/), not a commit hash",
+      "passed": true,
+      "evidence": "branch URL found"
+    },
+    {
+      "text": "commands.md pushes the umbrella branch without force and edits the PR with --body-file -",
+      "passed": true,
+      "evidence": "push=True force=False edit_stdin=True"
+    },
+    {
+      "text": "commands.md creates the issue comment (no marker comment exists yet) and posts only one",
+      "passed": true,
+      "evidence": "gh issue comment count=1, PATCH=False"
+    },
+    {
+      "text": "commands.md has no 'gh pr ready', no 'gh pr merge' and no --no-verify",
+      "passed": true,
+      "evidence": "forbidden commands found: []"
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "failed": 0,
+    "total": 12,
+    "pass_rate": 1.0
+  }
+}

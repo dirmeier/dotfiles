@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "commands.md edits the existing marker comment in place with a PATCH to comment ID 1111111113",
+      "passed": true,
+      "evidence": "PATCH to 1111111113 found"
+    },
+    {
+      "text": "commands.md posts no new issue comment and does not edit the issue body",
+      "passed": true,
+      "evidence": "gh issue comment count=0, issue edit=False"
+    },
+    {
+      "text": "The issue comment starts with the marker, then 'Spike result:'",
+      "passed": true,
+      "evidence": "line 2: 'Spike result: use a separate extraction pass with '"
+    },
+    {
+      "text": "The one-line result says: separate extraction pass, one second call per chunk",
+      "passed": true,
+      "evidence": "both phrases present"
+    },
+    {
+      "text": "The issue comment names PR #485 and links RECOMMENDATION.md with a branch URL",
+      "passed": true,
+      "evidence": "PR number and branch link present"
+    },
+    {
+      "text": "PR body ends with the line 'Closes #334'",
+      "passed": true,
+      "evidence": "last line 'Closes #334'"
+    },
+    {
+      "text": "PR body has one EDIT line dated 2026-11-13, above 'Closes #334'",
+      "passed": true,
+      "evidence": "EDIT lines: ['EDIT (2026-11-13): updated results of the final recommendati']"
+    },
+    {
+      "text": "No fact appears with two different numbers in the PR body",
+      "passed": true,
+      "evidence": "Number-set diff against the old body: no old number vanished. Only the counts 51/90 and 65/90 were added, and they agree with the old percentages."
+    },
+    {
+      "text": "PR title is unchanged and the PR stays a draft (no 'gh pr ready')",
+      "passed": true,
+      "evidence": "gh pr ready=False, --title in pr edit=False"
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  }
+}

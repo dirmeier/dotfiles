@@ -7,8 +7,9 @@ set -euo pipefail
 #
 # What it does:
 #   1. Merges any enabledPlugins / extraKnownMarketplaces present locally but
-#      missing from claude/settings.json (additive only — never removes or
-#      touches model/theme/effortLevel/env/hooks).
+#      missing from claude/settings.json (additive only), and copies the
+#      allowlisted preference keys (PREF_KEYS below) from live, live wins.
+#      Never touches model/theme/env/hooks/permissions.
 #   2. For skills/agents/memory: if the live path is still the intended
 #      symlink into this repo, does nothing. If it has drifted into a real
 #      copy (this happens — some tool can replace a symlink with a real
@@ -52,7 +53,17 @@ for mp_name, mp in live.get("extraKnownMarketplaces", {}).items():
         repo["extraKnownMarketplaces"][mp_name] = mp
         added_marketplaces.append(mp_name)
 
-if added_plugins or added_marketplaces:
+# Allowlist, not denylist: live also holds permissions (machine paths) and env
+# (secrets) that must never reach the repo. Add a key here to start syncing it.
+PREF_KEYS = ["effortLevel", "modelSettings", "autoCompactWindow", "promptCacheTtl",
+             "subagentPromptCacheTtl", "autoUpdatesChannel"]
+changed_prefs = []
+for key in PREF_KEYS:
+    if key in live and repo.get(key) != live[key]:
+        repo[key] = live[key]
+        changed_prefs.append(key)
+
+if added_plugins or added_marketplaces or changed_prefs:
     with open(repo_path, "w") as f:
         json.dump(repo, f, indent=2)
         f.write("\n")
@@ -61,7 +72,9 @@ if added_plugins:
     print("  added plugins: " + ", ".join(added_plugins))
 if added_marketplaces:
     print("  added marketplaces: " + ", ".join(added_marketplaces))
-if not added_plugins and not added_marketplaces:
+if changed_prefs:
+    print("  updated settings: " + ", ".join(changed_prefs))
+if not (added_plugins or added_marketplaces or changed_prefs):
     print("  already in sync.")
 PY
 

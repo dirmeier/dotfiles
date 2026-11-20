@@ -144,10 +144,10 @@ Switch to the result form only when the user says the spike is finished (the PR 
 PR #488 holds the results. Full write-up: [<file name>](<branch link to the final document>).
 Last update: 2026-11-13 (part 05).
 
-<Label>: <headline>. <Two or three short sentences: what works, what works with limits, what does not work.>
+**<Label>: <headline>.** <Two or three short sentences: what works, what works with limits, what does not work.>
 
-<Question or metric 1>: <VERDICT>. <the number with its denominator, and one short fact>.
-<Question or metric 2>: <VERDICT>. <the number with its denominator, and one short fact>.
+**<Question or metric 1>:** <VERDICT>. <the number with its denominator, and one short fact>.
+**<Question or metric 2>:** <VERDICT>. <the number with its denominator, and one short fact>.
 ```
 
 Rules for the result form:
@@ -156,6 +156,7 @@ Rules for the result form:
 - Propose the label together with the file name of the final document. The user okays both.
 - Write one line per row of the status table in the final document, in the same order. Without a status table, write one line per question or main point. Each line holds the name, the verdict and the number with its denominator. Add the one fact a reader needs, for example which part is weak.
 - Use no table and no bullets. The final document holds the detail.
+- Write the label with the headline in bold, and write the name of each question or metric in bold (`**Name:**`), as the comment in issue #468 does. Leave the rest of the line plain. Do not bold the marker, the link line or the `Last update` line.
 - Take every verdict and number from the final document. Do not write a result that no file states.
 - Keep the `Last update` line current on every later edit of the comment.
 - If the final document does not exist yet, run Mode D first, or keep the short progress form.

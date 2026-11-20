@@ -1,2 +1,0 @@
-<!-- pr-and-rolling-update -->
-Spike result: use a separate extraction pass with one second call per chunk (moments found with the right type rise from 57% (51/90) to 72% (65/90) in round 1 and from 45% (87/192) to 64% (123/192) in round 2, for 2.0 times the calls). Resolved in PR #NNN. Full write-up: https://github.com/Logitech/vnv-nexo-benchmark/blob/spike/334-typed-artefact-routing/experiments/334-typed-artefact-routing/RECOMMENDATION.md.
